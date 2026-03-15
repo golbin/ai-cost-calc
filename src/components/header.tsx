@@ -1,6 +1,6 @@
 "use client"
 
-import { Settings } from "lucide-react"
+import { Github, Settings } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ApiKeyStatus } from "./api-key-status"
 import type { Provider } from "@/lib/types"
@@ -19,6 +19,14 @@ export function Header({ configuredProviders, onOpenSettings }: HeaderProps) {
         </div>
         <div className="flex items-center gap-3">
           <ApiKeyStatus providers={configuredProviders} />
+          <a
+            href="https://github.com/golbin/ai-cost-calc"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-input bg-background text-sm font-medium shadow-xs transition-colors hover:bg-accent hover:text-accent-foreground"
+          >
+            <Github className="h-4 w-4" />
+          </a>
           <Button variant="outline" size="icon" onClick={onOpenSettings}>
             <Settings className="h-4 w-4" />
           </Button>
