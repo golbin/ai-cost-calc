@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Cost Calculator
 
-## Getting Started
+AI API 호출의 실제 토큰 사용량과 비용을 측정하는 웹 도구.
 
-First, run the development server:
+프롬프트(+ 이미지/오디오)를 입력하고 모델을 선택하면, 실제 API를 호출한 뒤 토큰 수와 비용을 항목별로 보여준다.
+
+## 지원 프로바이더 및 모델
+
+- **OpenAI** - GPT-4o, GPT-4.1, GPT-5 계열, Transcribe 모델
+- **Anthropic** - Claude Opus 4.6, Claude Sonnet 4.6
+- **Google Gemini** - Gemini 2.5/3/3.1 (AI Studio & Vertex AI)
+- **Groq** - Whisper V3 (음성 전사)
+
+## 주요 기능
+
+- 토큰 상세 분류 (input / output / cache read / cache write / reasoning)
+- 항목별 비용 계산
+- 멀티모달 입력 (텍스트, 이미지, 오디오)
+- 음성 전사 모델 지원 (Whisper, GPT Transcribe)
+
+## API 키 관리
+
+API 키는 브라우저 메모리에만 저장된다. 서버에 저장하지 않으며, 페이지 새로고침 시 사라진다.
+
+## 실행
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+http://localhost:3000 에서 설정 버튼을 눌러 API 키를 입력한 뒤 사용한다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 기술 스택
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Next.js (App Router) + shadcn/ui + Vercel AI SDK + TypeScript
