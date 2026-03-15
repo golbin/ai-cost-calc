@@ -1,38 +1,40 @@
 # AI Cost Calculator
 
+[한국어](README.ko.md) | [日本語](README.ja.md)
+
 https://ai-cost-calc-eta.vercel.app
 
-AI API 호출의 실제 토큰 사용량과 비용을 측정하는 웹 도구.
+A web tool that measures real token usage and costs by making actual AI API calls.
 
-프롬프트(+ 이미지/오디오)를 입력하고 모델을 선택하면, 실제 API를 호출한 뒤 토큰 수와 비용을 항목별로 보여준다.
+Enter a prompt (+ images/audio), select a model, and it calls the API to show a detailed breakdown of token counts and costs.
 
-## 지원 프로바이더 및 모델
+## Supported Providers
 
-- **OpenAI** - GPT-4o, GPT-4.1, GPT-5 계열, Transcribe 모델
+- **OpenAI** - GPT-4o, GPT-4.1, GPT-5 series, Transcribe models
 - **Anthropic** - Claude Opus 4.6, Claude Sonnet 4.6
 - **Google Gemini** - Gemini 2.5/3/3.1 (AI Studio & Vertex AI)
-- **Groq** - Whisper V3 (음성 전사)
+- **Groq** - Whisper V3 (audio transcription)
 
-## 주요 기능
+## Features
 
-- 토큰 상세 분류 (input / output / cache read / cache write / reasoning)
-- 항목별 비용 계산
-- 멀티모달 입력 (텍스트, 이미지, 오디오)
-- 음성 전사 모델 지원 (Whisper, GPT Transcribe)
+- Detailed token breakdown (input / output / cache read / cache write / reasoning)
+- Per-category cost calculation
+- Multimodal input (text, images, audio)
+- Audio transcription models (Whisper, GPT Transcribe)
 
-## API 키 관리
+## API Key Management
 
-API 키는 브라우저 메모리에만 저장된다. 서버에 저장하지 않으며, 페이지 새로고침 시 사라진다.
+API keys are stored in browser memory only. They are never saved on the server and are cleared on page refresh.
 
-## 실행
+## Getting Started
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-http://localhost:3000 에서 설정 버튼을 눌러 API 키를 입력한 뒤 사용한다.
+Open http://localhost:3000, click the settings button to enter your API keys, and start calculating.
 
-## 기술 스택
+## Tech Stack
 
 Next.js (App Router) + shadcn/ui + Vercel AI SDK + TypeScript
