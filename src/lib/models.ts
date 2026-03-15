@@ -1,0 +1,512 @@
+import { ModelDefinition } from "./types";
+
+export const models: ModelDefinition[] = [
+  // ── OpenAI Models ──────────────────────────────────────────
+  {
+    id: "gpt-4.1",
+    name: "GPT-4.1",
+    provider: "openai",
+    pricing: {
+      inputPerMillion: 2,
+      outputPerMillion: 8,
+      cachedInputPerMillion: 0.5,
+    },
+    capabilities: {
+      supportsImages: true,
+      supportsAudio: false,
+      supportsReasoning: false,
+      supportsCaching: true,
+    },
+    contextWindow: 1_000_000,
+    maxOutput: 128_000,
+  },
+  {
+    id: "gpt-4.1-mini",
+    name: "GPT-4.1 mini",
+    provider: "openai",
+    pricing: {
+      inputPerMillion: 0.4,
+      outputPerMillion: 1.6,
+      cachedInputPerMillion: 0.1,
+    },
+    capabilities: {
+      supportsImages: true,
+      supportsAudio: false,
+      supportsReasoning: false,
+      supportsCaching: true,
+    },
+    contextWindow: 1_000_000,
+    maxOutput: 128_000,
+  },
+  {
+    id: "gpt-4.1-nano",
+    name: "GPT-4.1 nano",
+    provider: "openai",
+    pricing: {
+      inputPerMillion: 0.1,
+      outputPerMillion: 0.4,
+      cachedInputPerMillion: 0.025,
+    },
+    capabilities: {
+      supportsImages: true,
+      supportsAudio: false,
+      supportsReasoning: false,
+      supportsCaching: true,
+    },
+    contextWindow: 1_000_000,
+    maxOutput: 128_000,
+  },
+  {
+    id: "gpt-5",
+    name: "GPT-5",
+    provider: "openai",
+    pricing: {
+      inputPerMillion: 1.25,
+      outputPerMillion: 10,
+      cachedInputPerMillion: 0.125,
+    },
+    capabilities: {
+      supportsImages: true,
+      supportsAudio: true,
+      supportsReasoning: false,
+      supportsCaching: true,
+    },
+    contextWindow: 400_000,
+    maxOutput: 128_000,
+  },
+  {
+    id: "gpt-5-mini",
+    name: "GPT-5 mini",
+    provider: "openai",
+    pricing: {
+      inputPerMillion: 0.25,
+      outputPerMillion: 2,
+      cachedInputPerMillion: 0.025,
+    },
+    capabilities: {
+      supportsImages: true,
+      supportsAudio: true,
+      supportsReasoning: false,
+      supportsCaching: true,
+    },
+    contextWindow: 400_000,
+    maxOutput: 128_000,
+  },
+  {
+    id: "gpt-5-nano",
+    name: "GPT-5 nano",
+    provider: "openai",
+    pricing: {
+      inputPerMillion: 0.05,
+      outputPerMillion: 0.4,
+      cachedInputPerMillion: 0.005,
+    },
+    capabilities: {
+      supportsImages: true,
+      supportsAudio: true,
+      supportsReasoning: false,
+      supportsCaching: true,
+    },
+    contextWindow: 400_000,
+    maxOutput: 128_000,
+  },
+  {
+    id: "gpt-5.2",
+    name: "GPT-5.2",
+    provider: "openai",
+    pricing: {
+      inputPerMillion: 1.75,
+      outputPerMillion: 14,
+      cachedInputPerMillion: 0.175,
+    },
+    capabilities: {
+      supportsImages: true,
+      supportsAudio: true,
+      supportsReasoning: false,
+      supportsCaching: true,
+    },
+    contextWindow: 400_000,
+    maxOutput: 128_000,
+  },
+  {
+    id: "gpt-5.4",
+    name: "GPT-5.4",
+    provider: "openai",
+    pricing: {
+      inputPerMillion: 2.5,
+      outputPerMillion: 15,
+      cachedInputPerMillion: 0.25,
+    },
+    capabilities: {
+      supportsImages: true,
+      supportsAudio: true,
+      supportsReasoning: false,
+      supportsCaching: true,
+    },
+    contextWindow: 1_050_000,
+    maxOutput: 128_000,
+  },
+
+  // ── OpenAI Transcribe Models (Audio Only) ──────────────────
+  {
+    id: "gpt-4o-transcribe",
+    name: "GPT-4o Transcribe",
+    provider: "openai",
+    pricing: {
+      inputPerMillion: 0,
+      outputPerMillion: 0,
+      audioInputPerMinute: 0.006,
+    },
+    capabilities: {
+      supportsImages: false,
+      supportsAudio: true,
+      supportsReasoning: false,
+      supportsCaching: false,
+    },
+    contextWindow: 0,
+    maxOutput: 0,
+    isAudioOnly: true,
+  },
+  {
+    id: "gpt-4o-mini-transcribe",
+    name: "GPT-4o mini Transcribe",
+    provider: "openai",
+    pricing: {
+      inputPerMillion: 0,
+      outputPerMillion: 0,
+      audioInputPerMinute: 0.003,
+    },
+    capabilities: {
+      supportsImages: false,
+      supportsAudio: true,
+      supportsReasoning: false,
+      supportsCaching: false,
+    },
+    contextWindow: 0,
+    maxOutput: 0,
+    isAudioOnly: true,
+  },
+
+  // ── Anthropic Models ───────────────────────────────────────
+  {
+    id: "claude-opus-4-6",
+    name: "Claude Opus 4.6",
+    provider: "anthropic",
+    pricing: {
+      inputPerMillion: 5,
+      outputPerMillion: 25,
+      cachedInputPerMillion: 0.5,
+      cacheWritePerMillion: 6.25,
+    },
+    capabilities: {
+      supportsImages: true,
+      supportsAudio: false,
+      supportsReasoning: true,
+      supportsCaching: true,
+    },
+    contextWindow: 1_000_000,
+    maxOutput: 128_000,
+  },
+  {
+    id: "claude-sonnet-4-6",
+    name: "Claude Sonnet 4.6",
+    provider: "anthropic",
+    pricing: {
+      inputPerMillion: 3,
+      outputPerMillion: 15,
+      cachedInputPerMillion: 0.3,
+      cacheWritePerMillion: 3.75,
+    },
+    capabilities: {
+      supportsImages: true,
+      supportsAudio: false,
+      supportsReasoning: true,
+      supportsCaching: true,
+    },
+    contextWindow: 1_000_000,
+    maxOutput: 64_000,
+  },
+
+  // ── Google Gemini (AI Studio) ──────────────────────────────
+  {
+    id: "gemini-2.5-pro",
+    name: "Gemini 2.5 Pro",
+    provider: "google",
+    pricing: {
+      inputPerMillion: 1.25,
+      outputPerMillion: 10,
+      cachedInputPerMillion: 0.125,
+    },
+    capabilities: {
+      supportsImages: true,
+      supportsAudio: true,
+      supportsReasoning: true,
+      supportsCaching: true,
+    },
+    contextWindow: 1_000_000,
+    maxOutput: 65_536,
+  },
+  {
+    id: "gemini-2.5-flash",
+    name: "Gemini 2.5 Flash",
+    provider: "google",
+    pricing: {
+      inputPerMillion: 0.3,
+      outputPerMillion: 2.5,
+      cachedInputPerMillion: 0.03,
+      audioInputPerMillion: 1,
+    },
+    capabilities: {
+      supportsImages: true,
+      supportsAudio: true,
+      supportsReasoning: true,
+      supportsCaching: true,
+    },
+    contextWindow: 1_000_000,
+    maxOutput: 65_536,
+  },
+  {
+    id: "gemini-2.5-flash-lite",
+    name: "Gemini 2.5 Flash-Lite",
+    provider: "google",
+    pricing: {
+      inputPerMillion: 0.1,
+      outputPerMillion: 0.4,
+      cachedInputPerMillion: 0.01,
+      audioInputPerMillion: 0.3,
+    },
+    capabilities: {
+      supportsImages: true,
+      supportsAudio: true,
+      supportsReasoning: true,
+      supportsCaching: true,
+    },
+    contextWindow: 1_000_000,
+    maxOutput: 65_536,
+  },
+  {
+    id: "gemini-3-flash-preview",
+    name: "Gemini 3 Flash",
+    provider: "google",
+    pricing: {
+      inputPerMillion: 0.5,
+      outputPerMillion: 3,
+      cachedInputPerMillion: 0.05,
+      audioInputPerMillion: 1,
+    },
+    capabilities: {
+      supportsImages: true,
+      supportsAudio: true,
+      supportsReasoning: true,
+      supportsCaching: true,
+    },
+    contextWindow: 1_000_000,
+    maxOutput: 65_536,
+  },
+  {
+    id: "gemini-3.1-pro-preview",
+    name: "Gemini 3.1 Pro",
+    provider: "google",
+    pricing: {
+      inputPerMillion: 2,
+      outputPerMillion: 12,
+      cachedInputPerMillion: 0.2,
+    },
+    capabilities: {
+      supportsImages: true,
+      supportsAudio: true,
+      supportsReasoning: true,
+      supportsCaching: true,
+    },
+    contextWindow: 1_000_000,
+    maxOutput: 65_536,
+  },
+  {
+    id: "gemini-3.1-flash-lite-preview",
+    name: "Gemini 3.1 Flash-Lite",
+    provider: "google",
+    pricing: {
+      inputPerMillion: 0.25,
+      outputPerMillion: 1.5,
+      cachedInputPerMillion: 0.025,
+      audioInputPerMillion: 0.5,
+    },
+    capabilities: {
+      supportsImages: true,
+      supportsAudio: true,
+      supportsReasoning: true,
+      supportsCaching: true,
+    },
+    contextWindow: 1_000_000,
+    maxOutput: 65_536,
+  },
+
+  // ── Google Gemini (Vertex AI) ──────────────────────────────
+  {
+    id: "gemini-2.5-pro",
+    name: "Gemini 2.5 Pro (Vertex)",
+    provider: "google-vertex",
+    pricing: {
+      inputPerMillion: 1.25,
+      outputPerMillion: 10,
+      cachedInputPerMillion: 0.125,
+    },
+    capabilities: {
+      supportsImages: true,
+      supportsAudio: true,
+      supportsReasoning: true,
+      supportsCaching: true,
+    },
+    contextWindow: 1_000_000,
+    maxOutput: 65_536,
+  },
+  {
+    id: "gemini-2.5-flash",
+    name: "Gemini 2.5 Flash (Vertex)",
+    provider: "google-vertex",
+    pricing: {
+      inputPerMillion: 0.3,
+      outputPerMillion: 2.5,
+      cachedInputPerMillion: 0.03,
+      audioInputPerMillion: 1,
+    },
+    capabilities: {
+      supportsImages: true,
+      supportsAudio: true,
+      supportsReasoning: true,
+      supportsCaching: true,
+    },
+    contextWindow: 1_000_000,
+    maxOutput: 65_536,
+  },
+  {
+    id: "gemini-2.5-flash-lite",
+    name: "Gemini 2.5 Flash-Lite (Vertex)",
+    provider: "google-vertex",
+    pricing: {
+      inputPerMillion: 0.1,
+      outputPerMillion: 0.4,
+      cachedInputPerMillion: 0.01,
+      audioInputPerMillion: 0.3,
+    },
+    capabilities: {
+      supportsImages: true,
+      supportsAudio: true,
+      supportsReasoning: true,
+      supportsCaching: true,
+    },
+    contextWindow: 1_000_000,
+    maxOutput: 65_536,
+  },
+  {
+    id: "gemini-3-flash-preview",
+    name: "Gemini 3 Flash (Vertex)",
+    provider: "google-vertex",
+    pricing: {
+      inputPerMillion: 0.5,
+      outputPerMillion: 3,
+      cachedInputPerMillion: 0.05,
+      audioInputPerMillion: 1,
+    },
+    capabilities: {
+      supportsImages: true,
+      supportsAudio: true,
+      supportsReasoning: true,
+      supportsCaching: true,
+    },
+    contextWindow: 1_000_000,
+    maxOutput: 65_536,
+  },
+  {
+    id: "gemini-3.1-pro-preview",
+    name: "Gemini 3.1 Pro (Vertex)",
+    provider: "google-vertex",
+    pricing: {
+      inputPerMillion: 2,
+      outputPerMillion: 12,
+      cachedInputPerMillion: 0.2,
+    },
+    capabilities: {
+      supportsImages: true,
+      supportsAudio: true,
+      supportsReasoning: true,
+      supportsCaching: true,
+    },
+    contextWindow: 1_000_000,
+    maxOutput: 65_536,
+  },
+  {
+    id: "gemini-3.1-flash-lite-preview",
+    name: "Gemini 3.1 Flash-Lite (Vertex)",
+    provider: "google-vertex",
+    pricing: {
+      inputPerMillion: 0.25,
+      outputPerMillion: 1.5,
+      cachedInputPerMillion: 0.025,
+      audioInputPerMillion: 0.5,
+    },
+    capabilities: {
+      supportsImages: true,
+      supportsAudio: true,
+      supportsReasoning: true,
+      supportsCaching: true,
+    },
+    contextWindow: 1_000_000,
+    maxOutput: 65_536,
+  },
+
+  // ── Groq Whisper Models (Audio Only) ───────────────────────
+  {
+    id: "whisper-large-v3",
+    name: "Whisper V3 Large",
+    provider: "groq",
+    pricing: {
+      inputPerMillion: 0,
+      outputPerMillion: 0,
+      audioInputPerHour: 0.111,
+    },
+    capabilities: {
+      supportsImages: false,
+      supportsAudio: true,
+      supportsReasoning: false,
+      supportsCaching: false,
+    },
+    contextWindow: 0,
+    maxOutput: 0,
+    isAudioOnly: true,
+  },
+  {
+    id: "whisper-large-v3-turbo",
+    name: "Whisper V3 Turbo",
+    provider: "groq",
+    pricing: {
+      inputPerMillion: 0,
+      outputPerMillion: 0,
+      audioInputPerHour: 0.04,
+    },
+    capabilities: {
+      supportsImages: false,
+      supportsAudio: true,
+      supportsReasoning: false,
+      supportsCaching: false,
+    },
+    contextWindow: 0,
+    maxOutput: 0,
+    isAudioOnly: true,
+  },
+];
+
+export function findModel(
+  modelId: string,
+  provider: string,
+): ModelDefinition | undefined {
+  return models.find((m) => m.id === modelId && m.provider === provider);
+}
+
+export const providerNames: Record<string, string> = {
+  openai: "OpenAI",
+  anthropic: "Anthropic",
+  google: "Google AI Studio",
+  "google-vertex": "Google Vertex AI",
+  groq: "Groq",
+};
