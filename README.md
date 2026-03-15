@@ -1,5 +1,7 @@
 # AI Cost Calculator
 
+https://ai-cost-calc-eta.vercel.app
+
 AI API 호출의 실제 토큰 사용량과 비용을 측정하는 웹 도구.
 
 프롬프트(+ 이미지/오디오)를 입력하고 모델을 선택하면, 실제 API를 호출한 뒤 토큰 수와 비용을 항목별로 보여준다.
